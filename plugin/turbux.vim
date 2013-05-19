@@ -199,13 +199,25 @@ function! SendFocusedTestToTmux(file, line) abort
 endfunction
 " }}}1
 
+function! SendLastFocusedTestToTmux(file, line) abort
+  if exists("g:tmux_last_focused_command") && !empty(g:tmux_last_focused_command)
+    let executable = g:tmux_last_focused_command
+  else
+    let executable = ''
+  end
+  return s:send_test(executable)
+endfunction
+
+
 " Mappings {{{1
 nnoremap <silent> <Plug>SendTestToTmux :<C-U>w \| call SendTestToTmux(expand('%'))<CR>
 nnoremap <silent> <Plug>SendFocusedTestToTmux :<C-U>w \| call SendFocusedTestToTmux(expand('%'), line('.'))<CR>
+nnoremap <silent> <Plug>SendLastFocusedTestToTmux :<C-U>w \| call SendLastFocusedTestToTmux(expand('%'), line('.'))<CR>
 
 if !exists("g:no_turbux_mappings")
   nmap <leader>t <Plug>SendTestToTmux
   nmap <leader>T <Plug>SendFocusedTestToTmux
+  nmap <leader>e <Plug>SendLastFocusedTestToTmux
 endif
 "}}}1
 

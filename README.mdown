@@ -16,6 +16,16 @@ Add one more customize command to use zeus
       rspec $@
     fi
 
+ Add ```SendLastFocusedTestToTmux``` function to run last focus testing spec even you are in other testing spec
+
+ The default command is
+
+    map <leader>t <Plug>SendTestToTmux
+    map <leader>r <Plug>SendFocusedTestToTmux
+    map <leader>e <Plug>SendLastFocusedTestToTmux
+
+ You could overrwite whatever you like
+
 For more information, see the documentation.
 
 

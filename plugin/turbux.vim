@@ -20,9 +20,9 @@ function! s:turbux_command_setting(name, default_value)
   endif
 endfunction
 
-call s:turbux_command_setting("rspec", "zeus-rspec")
+call s:turbux_command_setting("rspec", "rspec")
 call s:turbux_command_setting("test_unit", "ruby -Itest")
-call s:turbux_command_setting("turnip", "zeus-rspec -rturnip")
+call s:turbux_command_setting("turnip", "rspec -rturnip")
 call s:turbux_command_setting("cucumber", "cucumber")
 call s:turbux_command_setting("prefix", "")
 " }}}1

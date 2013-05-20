@@ -3,19 +3,6 @@ mapping to run the most relevant test based on the current file in vim.
 It uses tmux's scriptability to send commands to a chosen pane in your
 tmux session.
 
-Add one more customize command to use zeus
-
-    #!/bin/sh
-    #
-    # Run specs with great speed and daring-do.
-    #
-    # /usr/local/bin/zeus-rspec
-    if command -v zeus; then
-      zeus rspec $@
-    else
-      rspec $@
-    fi
-
  Add ```SendLastFocusedTestToTmux``` function to run last focus testing spec even you are in other testing spec
 
  The default command is
